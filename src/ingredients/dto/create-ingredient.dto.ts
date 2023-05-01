@@ -1,18 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateIngredienteDto {
-  @ApiProperty({ description: 'Nombre del ingrediente' })
+export class CreateIngredientDto {
+  @ApiProperty({ description: 'Nombre del ingredient' })
   @IsString()
   @IsNotEmpty()
   name: string;
 
-  @ApiProperty({ description: 'Estilo del ingrediente' })
+  @ApiProperty({ description: 'Estilo del ingredient' })
   @IsString()
   @IsNotEmpty()
   style: string;
 
-  @ApiProperty({ description: 'Imagen del ingrediente' })
+  @ApiProperty({ description: 'Imagen del ingredient' })
   @IsString()
   image: string;
 }

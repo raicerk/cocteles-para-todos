@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { IngredientesModule } from './ingredientes/ingredientes.module';
+import { IngredientsModule } from './ingredients/ingredients.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Ingrediente } from './ingredientes/entities/ingrediente.entity';
+import { Ingredient } from './ingredients/entities/ingredient.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TipoDeCantidadModule } from './tipo-de-cantidad/tipo-de-cantidad.module';
+import { QuantityTypeModule } from './quantity-type/quantity-type.module';
 
 @Module({
   imports: [
@@ -20,12 +22,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         username: config.get<string>('DATABASE_USER'),
         password: config.get<string>('DATABASE_PASSWORD'),
         database: config.get<string>('DATABASE_BASE'),
-        entities: [Ingrediente],
+        entities: [Ingredient],
         synchronize: true,
       }),
       inject: [ConfigService],
     }),
-    IngredientesModule,
+    IngredientsModule,
+    TipoDeCantidadModule,
+    QuantityTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],

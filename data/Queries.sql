@@ -6,10 +6,10 @@ SELECT r.name,
 	r.autor,
 	r.Intrucciones 
 FROM Recetas r
-inner join Recetas_has_Ingredientes rhi 
+inner join Recetas_has_Ingredients rhi 
 on r.idRecetas = rhi.Recetas_idRecetas
-inner join Ingredientes i 
-on rhi.Ingredientes_idIngredientes = i.idIngredientes
+inner join Ingredients i 
+on rhi.Ingredients_idIngredients = i.idIngredients
 inner join `style` s 
 on i.style_idstyle = s.idstyle 
 inner join TiposDeCantidad tdc 
