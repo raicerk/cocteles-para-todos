@@ -7,19 +7,19 @@ export class Ingredient {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ApiProperty({ description: 'Name og ingredient' })
+  @ApiProperty({ description: 'Name of ingredient' })
   @Column()
   name: string;
 
-  @ApiProperty({ description: 'Style ingredient' })
+  @ApiProperty({ description: 'Style of ingredient' })
   @Column()
   style: string;
 
-  @ApiProperty({ description: 'Image ingredient' })
+  @ApiProperty({ description: 'Image the ingredient' })
   @Column()
   image: string;
 
-  @ApiProperty({ description: 'State ingredient' })
+  @ApiProperty({ description: 'State of ingredient' })
   @Column({ default: true })
   isActive: boolean;
 }

@@ -22,7 +22,7 @@ export class IngredientsController {
 
   @Post()
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Inserta un ingredient' })
+  @ApiOperation({ summary: 'Insert a new ingredient' })
   @ApiResponse({ type: IngredientCreate, status: HttpStatus.OK })
   create(
     @Body() createIngredientDto: CreateIngredientDto,
@@ -32,7 +32,7 @@ export class IngredientsController {
 
   @Get()
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Obtiene todos los ingredient' })
+  @ApiOperation({ summary: 'Get all ingredients' })
   @ApiResponse({ type: Ingredient, status: HttpStatus.OK, isArray: true })
   findAll() {
     return this.ingredientsService.findAll();
