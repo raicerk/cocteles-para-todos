@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Ingredient } from './ingredients/entities/ingredient.entity';
@@ -33,7 +31,7 @@ import { Receipt } from './receipts/entities/receipt.entity';
     QuantityTypeModule,
     ReceiptsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

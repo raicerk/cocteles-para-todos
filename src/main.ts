@@ -10,7 +10,6 @@ async function bootstrap() {
     .setTitle('Cocteles para todos')
     .setDescription('Cocteles para todos API ')
     .setVersion('1.0')
-    .addTag('Cocteles para todos')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
