@@ -7,6 +7,7 @@ import { Ingredient } from './ingredients/entities/ingredient.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { QuantityTypeModule } from './quantity-type/quantity-type.module';
 import { QuantityType } from './quantity-type/entities/quantity-type.entity';
+import { ReceiptsModule } from './receipts/receipts.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { QuantityType } from './quantity-type/entities/quantity-type.entity';
     }),
     IngredientsModule,
     QuantityTypeModule,
+    ReceiptsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
