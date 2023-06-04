@@ -8,6 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { QuantityTypeModule } from './quantity-type/quantity-type.module';
 import { QuantityType } from './quantity-type/entities/quantity-type.entity';
 import { ReceiptsModule } from './receipts/receipts.module';
+import { Receipt } from './receipts/entities/receipt.entity';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { ReceiptsModule } from './receipts/receipts.module';
         username: config.get<string>('DATABASE_USER'),
         password: config.get<string>('DATABASE_PASSWORD'),
         database: config.get<string>('DATABASE_BASE'),
-        entities: [Ingredient, QuantityType],
+        entities: [Ingredient, QuantityType, Receipt],
         synchronize: true,
       }),
       inject: [ConfigService],

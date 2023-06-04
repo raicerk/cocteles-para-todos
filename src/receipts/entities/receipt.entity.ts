@@ -15,10 +15,6 @@ export class Receipt {
   @Column()
   author: string;
 
-  @ApiProperty({ description: 'Datetime to create receipt' })
-  @Column({ default: new Date() })
-  datetime: Date;
-
   @ApiProperty({ description: 'History of receipts' })
   @Column()
   history: string;
