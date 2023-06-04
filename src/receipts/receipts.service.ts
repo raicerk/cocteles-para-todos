@@ -1,19 +1,29 @@
 import { Injectable } from '@nestjs/common';
 import { CreateReceiptDto } from './dto/create-receipt.dto';
 import { UpdateReceiptDto } from './dto/update-receipt.dto';
+import { Receipt, ReceiptCreate } from './entities/receipt.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ReceiptsService {
-  create(createReceiptDto: CreateReceiptDto) {
-    return 'This action adds a new receipt';
+  constructor(
+    @InjectRepository(Receipt)
+    private receiptsRepository: Repository<Receipt>,
+  ) {}
+  async create(createReceiptDto: CreateReceiptDto): Promise<ReceiptCreate> {
+    const { id } = await this.receiptsRepository.save(createReceiptDto);
+    return {
+      id,
+    };
   }
 
-  findAll() {
-    return `This action returns all receipts`;
+  async findAll(): Promise<Array<Receipt>> {
+    return this.receiptsRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} receipt`;
+  async findOne(id: number): Promise<Receipt> {
+    return await this.receiptsRepository.findOneBy({ id });
   }
 
   update(id: number, updateReceiptDto: UpdateReceiptDto) {
